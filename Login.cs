@@ -16,7 +16,7 @@ namespace projeto_produtos
 
             Logar(user);
 
-            if (Logado == true)
+            if (Logado)
             {
                 GerarMenu();
             }
@@ -29,12 +29,11 @@ namespace projeto_produtos
 
             Console.WriteLine($"Digite a senha:");
             string senha = Console.ReadLine();
-            Console.WriteLine($"");
+
             if (email == _usuario.Email && senha == _usuario.Senha)
             {
                 this.Logado = true;
                 Console.WriteLine($"Login efetuado");
-
             }
             else
             {
@@ -55,15 +54,19 @@ namespace projeto_produtos
             do
             {
                 Console.WriteLine(@$"
-            [1] - Cadastrar produto
-            [2] - Listar produto
-            [3] - Excluir produto
-            -------------------------
-            [4] - Cadastrar marca
-            [5] - Listar marca
-            [6] - Excluir marca
-            
-            [0] - Sair
+===========================
+| SISTEMA DE PRODUTOS     |
+|                         |
+| 1 - Cadastrar produto   |
+| 2 - Listar produtos     |
+| 3 - Remover produto     |
+===========================          
+| 4 - Cadastrar marca     |
+| 5 - Listar marcas       |
+| 6 - Deletar marcas      |
+===========================          
+| 0 - Sair                |
+===========================         
             ");
 
                 opcao = Console.ReadKey(true);

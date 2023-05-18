@@ -11,7 +11,9 @@ namespace projeto_produtos
         public int Codigo { get; set; }
         public string nomeMarca { get; set; }
         public DateTime DataCadastro { get; set; }
-        List<Marca> ListaDeMarca = new List<Marca>();
+        public string NomeMarca { get; internal set; }
+
+        public List<Marca> ListaDeMarca = new List<Marca>();
 
         public Marca Cadastrar()
         {
@@ -45,6 +47,8 @@ namespace projeto_produtos
             marcaAchado = ListaDeMarca.Find(x => x.Codigo == _codigo);
 
             ListaDeMarca.Remove(marcaAchado);
+            Console.WriteLine($"Marca deletada!");
+            
         }
     }
 }
