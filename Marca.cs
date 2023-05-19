@@ -10,10 +10,10 @@ namespace projeto_produtos
     {
         public int Codigo { get; set; }
         public string nomeMarca { get; set; }
-        public DateTime DataCadastro { get; set; }
+        public static DateTime DataCadastro { get; set; }
         public string NomeMarca { get; internal set; }
 
-        public List<Marca> ListaDeMarca = new List<Marca>();
+        static List<Marca> ListaDeMarca = new List<Marca>();
 
         public Marca Cadastrar()
         {
@@ -32,12 +32,23 @@ namespace projeto_produtos
             return novaMarca;
         }
 
-        public void Listar()
+        public static void Listar()
         {
             DataCadastro = DateTime.Now;
+            
+            if (ListaDeMarca.Count() == 0)
+            {
+                Console.WriteLine($"Lista vazia..");
+            }
             foreach (Marca item in ListaDeMarca)
             {
-                Console.WriteLine($"Codigo: {item.Codigo}\nNome: {item.nomeMarca}\nHora do cadastro: {DataCadastro} ");
+                Console.WriteLine(@$"
+==================================
+Codigo: {item.Codigo}
+Nome: {item.nomeMarca}
+Hora do cadastro: {DataCadastro} 
+===================================
+                ");
             }
         }
 
@@ -48,7 +59,6 @@ namespace projeto_produtos
 
             ListaDeMarca.Remove(marcaAchado);
             Console.WriteLine($"Marca deletada!");
-            
         }
     }
 }

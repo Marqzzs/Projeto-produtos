@@ -29,7 +29,7 @@ namespace projeto_produtos
             Console.WriteLine($"Digite o preço do produto:");
             produto.Preco = float.Parse(Console.ReadLine());
 
-            produto.Marca = Marca.Cadastrar();   
+            produto.Marca = Marca.Cadastrar();
 
             ListaDeProduto.Add(produto);
         }
@@ -40,21 +40,25 @@ namespace projeto_produtos
 
             foreach (Produto p in ListaDeProduto)
             {
+                if (ListaDeProduto.Count() == 0)
+                {
+                    Console.WriteLine($"Lista vazia..");
+                }
                 Console.WriteLine(@$"
-===============================
+=========================================
 Codigo: {p.Codigo}
 Nome: {p.NomeProduto}
 Preco: {p.Preco}
-Marca: 
-Cadastro realizado por: {p.CadastradoPor}
-===============================
+==========================================
+Codigo da Marca: {p.Marca.Codigo}
+Marca: {p.Marca.nomeMarca}
+==========================================
+Cadastro realizado por: {p.user.Email}
+Hora do Cadastro: {p.DataCadastro}
+==========================================
                 ");
             }
 
-            if (ListaDeProduto.Count() == 0)
-            {
-                Console.WriteLine($"Lista vazia..");
-            }
         }
         public void Deletar(int _codigo)
         {
@@ -63,7 +67,7 @@ Cadastro realizado por: {p.CadastradoPor}
 
             ListaDeProduto.Remove(produtoAchado);
             Console.WriteLine($"Produto deletado!");
-            
+
         }
     }
 }

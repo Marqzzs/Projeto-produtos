@@ -7,6 +7,7 @@ namespace projeto_produtos
 {
     public class Login
     {
+        
         public bool Logado { get; set; }
         ConsoleKeyInfo opcao;
 
@@ -38,6 +39,7 @@ namespace projeto_produtos
             else
             {
                 this.Logado = false;
+                
                 Console.WriteLine($"Falha ao logar");
             }
         }
@@ -49,7 +51,7 @@ namespace projeto_produtos
         public void GerarMenu()
         {
             Produto produto = new Produto();
-            Marca marca = new Marca();
+            Marca Marca = new Marca();
 
             do
             {
@@ -88,17 +90,17 @@ namespace projeto_produtos
                         break;
 
                     case ConsoleKey.D4:
-                        marca.Cadastrar();
+                        Marca.Cadastrar();
                         break;
 
                     case ConsoleKey.D5:
-                        marca.Listar();
+                        Marca.Listar();
                         break;
 
                     case ConsoleKey.D6:
                         Console.WriteLine($"Digite o codigo da marca a ser deletada:");
                         int codigoMarca = int.Parse(Console.ReadLine());
-                        produto.Deletar(codigoMarca);
+                        Marca.Deletar(codigoMarca);
                         break;
 
                     case ConsoleKey.D0:
@@ -110,7 +112,6 @@ namespace projeto_produtos
                         break;
                 }
             } while (true);
-
         }
     }
 }
